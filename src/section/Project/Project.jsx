@@ -10,7 +10,7 @@ function Project(){
                 <div className="card-project">
                     <h3 className="card-project-title">Rick and Morty</h3>
                     <p className="card-project-description">Pagina para ver todos los personajes que aparecen en la serie animada Rick and morty utilizando su api para obtner los datos de cada personaje.</p>
-                    <a href="#gi/portfolio/projects/rick-and-morty" className="btn-project" target="_blank">
+                    <a href="#/portfolio/projects/rick-and-morty" className="btn-project" target="_blank">
                         <AiOutlineRight/>
                     </a>
                 </div>  

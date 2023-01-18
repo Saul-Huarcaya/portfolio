@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path='/portfolio' element={<Main/>}/>
+        <Route path='/' element={<Main/>}/>
         <Route path='*' element={<Error404/>}/>
         <Route path='/portfolio/projects/rick-and-morty' element={<RickAndMorty/>}/>
         <Route path='/portfolio/projects/crud' element={<Crud/>}/>
