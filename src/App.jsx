@@ -13,8 +13,8 @@ function App() {
       <Routes>
         <Route path='/portfolio' element={<Main/>}/>
         <Route path='*' element={<Error404/>}/>
-        <Route path='/projects/rick-and-morty' element={<RickAndMorty/>}/>
-        <Route path='/projects/crud' element={<Crud/>}/>
+        <Route path='/portfolio/projects/rick-and-morty' element={<RickAndMorty/>}/>
+        <Route path='/portfolio/projects/crud' element={<Crud/>}/>
       </Routes>
     </div>
   )
