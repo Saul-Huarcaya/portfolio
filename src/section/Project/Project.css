@@ -1,0 +1,87 @@
+#project{
+    min-height: 100vh;
+    padding-top: 3.5rem;
+    background-color: rgb(29, 31, 27);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.section-project{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+.section-title{
+    text-align: center;
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white;
+}
+.container-project{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card-project{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    color: black;
+    padding: 1rem;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 380px;
+    gap: 0.5rem;
+}
+.card-project-title{
+    text-align: center;
+    color: rgb(29, 31, 27);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    font-family: fantasy;
+}
+.card-description{
+    text-align: justify;
+    color: rgb(29, 31, 27);
+}
+.btn-project{
+    background-color: brown;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 50%;
+    padding: 0.8rem;
+    font-size: 1.5rem;
+    transition: all 0.2s ease-in-out;
+}
+.btn-project:hover{
+    transform: translate(5px,0px);
+    background-color: rgb(252, 19, 19);
+}
+
+@media screen and (min-width:769px) {
+    .container-project{
+        padding: 0rem 1rem;
+    }
+    .card-project{
+        max-width: 360px;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    #project{
+        padding-top: 4rem;
+    }
+    .card-project{
+        max-width: 380px;
+    }
+}

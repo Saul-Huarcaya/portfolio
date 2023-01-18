@@ -1,0 +1,40 @@
+.modal{
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgb(0, 0, 0,0.75);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.modal.is-open{
+    display: flex;
+}
+img{
+    width: 100%;
+}
+
+.modal-container{
+    position: relative;
+    padding: 1rem;
+    min-width: 320px;
+    max-width: 320px;
+    max-height: 600px;
+    overflow-y: auto;
+    background-color: white;
+    color: black;
+}
+.modal-close{
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    cursor: pointer;
+}
+@media screen and (max-width:375px) {
+    .modal-container{
+        min-width: 240px;
+    }
+}

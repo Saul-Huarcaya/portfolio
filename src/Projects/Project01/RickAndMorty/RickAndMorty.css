@@ -1,0 +1,81 @@
+.header-morty{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6rem;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 1000;
+    background-color: black;
+}
+.title-app-morty{
+    font-size: 2.5rem;
+    font-family: fantasy, sans-serif;
+    font-weight: 200;
+    text-align: center;
+    color: white;
+}
+.container-morty{
+    padding-top: 7rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    gap:1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+.main-morty{
+    display: grid;
+    gap: 1rem;
+}
+@media screen and (max-width:375px) {
+    .main-morty{
+        grid-template-columns: 1fr;
+    }
+}
+@media screen and (min-width:376px) {
+    .main-morty{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width:768px) {
+    .main-morty{
+        grid-template-columns:  1fr 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .main-morty{
+        grid-template-columns:  1fr 1fr 1fr 1fr;
+    }
+}
+
+.paginacion{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    color: white;
+}
+.paginacion.center{
+    margin-bottom: 4rem;
+    background-color: red;
+}
+.end{
+    display: flex;
+    justify-content: end;
+}
+.center{
+    display: flex;
+    justify-content: center;
+}
+.container-loader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

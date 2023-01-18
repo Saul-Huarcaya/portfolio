@@ -1,0 +1,129 @@
+#skill{
+    min-height: 100vh;
+    padding-top: 4rem;
+    background-color: rgb(29, 31, 27);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.section-skill{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: calc(100% - 2rem);
+}
+
+.container-skill{
+    display: grid;
+    width: 100%;
+    gap: 1rem;
+}
+
+.card-skill{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    color: black;
+    padding: 1rem 0.5rem;
+    border-radius: 6px;
+    gap: 0.5rem;
+}
+.card_content{
+    display: flex;
+    width: 100%;
+    gap: 0.5rem;
+}
+.card_logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    width: 60%;
+}
+
+.card_description{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.title-skill{
+    font-size: 1.5rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height: 1.5rem;
+}
+@media screen and (min-width: 375px) {
+    .container-skill{
+        grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+    .card_content{
+        flex-direction: column;
+    }
+    .card_logo{
+        font-size: calc(6rem + 1vh);
+        width: 100%;
+    }
+    .title-skill{
+        font-size: calc(1.5rem + 1vh);
+    }
+    .card_description{
+        text-align: center;
+        gap: 1rem;
+    }
+}
+@media screen and (min-width: 575px){
+    #skill{
+        padding-top: 5rem;
+    }
+    .card_content{
+        flex-direction: row;
+    }
+    .card_description{
+        text-align: left;
+    }
+    .card-skill{
+        padding: 0.8rem 0.5rem;
+    }
+}
+@media screen and (min-width: 975px) {
+    #skill{
+        padding-top: 5rem;
+    }
+    .container-skill{
+        grid-template-columns: repeat(3,minmax(0,1fr));
+    }
+    .card_logo{
+        font-size: calc(6.5rem + 1vh);
+        width: 80%;
+    }
+    .card_description{
+        width: 100%;
+    }
+    .title-skill{
+        font-size: 2rem;
+    }
+    .description_nivel{
+        font-size: 1.1rem;
+    }
+    .text_nivel{
+        font-weight: 1.2rem;
+        font-weight: 800;
+    }
+}
+@media screen and (min-width: 1024px){
+    #skill{
+        padding-top: 4.5rem;
+    }
+    .title-skill{
+        font-size: 2rem;
+        line-height: 2rem;
+    }
+    .card_description{
+        justify-content: center;
+        gap: 0.5rem;
+    }
+}
