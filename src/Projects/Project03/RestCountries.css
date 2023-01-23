@@ -1,0 +1,22 @@
+.container-paises{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+}
+.card-pais{
+    color: white;
+    background-color: black;
+    border-radius: 6px;
+}
+.card-content{
+    padding: 0.5rem 1rem ;
+}
+.card-pais-img{
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}

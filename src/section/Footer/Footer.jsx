@@ -26,7 +26,7 @@ function Footer(){
                 </a>
             </div>
 
-            <p className="footer-copy">Saul Huarcaya Quispe - 2022</p>
+            <p className="footer-copy">Creado por saul Huarcaya (2022) &#169;</p>
         </div>
     </footer>
 }

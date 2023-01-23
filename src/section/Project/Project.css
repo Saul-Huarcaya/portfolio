@@ -39,6 +39,7 @@
     width: 100%;
     max-width: 380px;
     gap: 0.5rem;
+    text-align: justify;
 }
 .card-project-title{
     text-align: center;

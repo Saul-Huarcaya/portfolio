@@ -16,12 +16,11 @@ function Delete({setModal,id}){
 
     return <div className="aviso-delete">
             <p className="text-delete">
-                ¿Estas seguro de eliminar al usuario
-                <span> {usuario.nombre} {usuario.apellido}</span>
-                ?    
+                ¿ Estas seguro de eliminar al usuario
+                <span className="text-user-delete"> {usuario.nombre} {usuario.apellido}</span> ?    
             </p>
             <div className="container-button-delete">
-                <button className="btn-delete yes" onClick={    handleEliminar} >Si</button>
+                <button className="btn-delete yes" onClick={handleEliminar}>Si</button>
                 <button className="btn-delete no" onClick={()=>setModal(false)}>No</button>
             </div>
     </div>

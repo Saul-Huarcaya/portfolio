@@ -1,5 +1,5 @@
 #contact{
-    min-height: 100vh;
+    min-height: 480px;
     padding-top: 3.5rem;
     background-color: rgb(29, 31, 27);
     display: flex;
@@ -58,5 +58,8 @@
 @media screen and (min-width:768px) {
     .contact-form{
         width: 560px;
+    }
+    #contact{
+        min-height: 80vh;
     }
 }
