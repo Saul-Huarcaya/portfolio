@@ -12,7 +12,7 @@ function RickAndMorty(){
     const [busqueda,setBusqueda] = useState("");
     
     const fetchCharacters = () =>{
-        const url = `https://rickandmortyapi.com/api/character/?page=${pagina}`;
+        let url = `https://rickandmortyapi.com/api/character/?page=${pagina}`;
         const peticion = fetch(url);
         peticion.then(data =>data.json())
         .then(res =>
