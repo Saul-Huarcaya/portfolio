@@ -1,6 +1,6 @@
 import { useEffect , useState } from "react";
 import BotonTop from "../../../components/BotonTop/BotonTop";
-/* import Loader from "../../../components/Loader/Loader"; */
+import Loader from "../../../components/Loader/Loader"; 
 import "./RickAndMorty.css";
 import CardCharacter from "../CardCharacter/CardCharacter";
 import "../CardCharacter/CardCharacter.css";
@@ -81,9 +81,9 @@ function RickAndMorty(){
                     specie={personaje.species}
                 />)}
             </div>
-            {/* <div className="container-loader">
+            <div className="container-loader">
                 <Loader/>
-            </div> */}
+            </div>
         </div>
         <BotonTop/>
     </>
