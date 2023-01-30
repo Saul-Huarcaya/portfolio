@@ -38,7 +38,6 @@ function Table(){
                         <th>Opciones</th>
                     </tr>
                 </thead>
-                    {console.log(data.length)}
                 <tbody>
                     {
                         (data.length === 0)?

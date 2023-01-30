@@ -46,7 +46,7 @@ function Nav(){
                                 spy={true} 
                                 smooth={true} 
                                 offset={0} 
-                                duration={500} 
+                                duration={0} 
                                 className="item" 
                                 activeClass="active"
                                 onClick={() => setVisible(false)}>{item.texto}</Link>

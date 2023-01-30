@@ -11,6 +11,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "boxicons": "^2.1.4",
     "gh-pages": "^4.0.0",
     "react": "^18.2.0",

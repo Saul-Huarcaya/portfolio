@@ -6,8 +6,11 @@
 body{
     background-color: rgb(29, 31, 27);
 }
+html{
+    scroll-behavior: smooth;
+}
 .container{
-    max-width: 1024px;
     margin-left: 1rem;
     margin-right: 1rem;
+    max-width: 1024px;
 }

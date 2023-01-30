@@ -5,6 +5,7 @@ import Project from "../section/Project/Project";
 import Skill from "../section/Skill/Skill";
 import Contact from "../section/Contact/Contact";
 import Footer from "../section/Footer/Footer";
+import BotonTop from "./BotonTop/BotonTop";
 function Main(){
     return <div>
         <Nav/>
@@ -13,6 +14,7 @@ function Main(){
         <Skill/>
         <Contact/>
         <Footer/>
+        <BotonTop/>
     </div>
 }
 export default Main;
