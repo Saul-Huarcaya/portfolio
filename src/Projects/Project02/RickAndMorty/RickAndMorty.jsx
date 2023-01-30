@@ -10,29 +10,14 @@ function RickAndMorty(){
     const [character,setCharacter] = useState([]);
     const [pagina,setPagina] = useState(1);
     const [busqueda,setBusqueda] = useState("");
-
-    const HandleBusqueda = (e) =>{
-        setBusqueda(e.target.value);
-    }
-
-    let results = [];
-
-    if(!busqueda){
-        results = character;
-    }else{
-        results = character.filter(personaje => personaje.name.toLowerCase().includes(busqueda.toLowerCase()))
-    }
     
-
-
     const fetchCharacters = () =>{
         const url = `https://rickandmortyapi.com/api/character/?page=${pagina}`;
         const peticion = fetch(url);
         peticion.then(data =>data.json())
         .then(res =>
             res.results.map((personaje)=>{
-                setCharacter(e=>[...e,personaje
-                ])
+                setCharacter(e=>[...e,personaje])
             })
         )
         .catch((error)=>console.log(error))
@@ -48,16 +33,28 @@ function RickAndMorty(){
 
         window.addEventListener("scroll",ScrollMove);
 
-        return () =>{
+        /* return () =>{
             window.addEventListener("scroll",ScrollMove);
-        }
+        } */
 
     },[]);
-    
 
     useEffect(()=>{
         fetchCharacters();
     },[pagina]);
+
+
+    const HandleBusqueda = (e) =>{
+        setBusqueda(e.target.value);
+    }
+
+    let results = [];
+
+    if(!busqueda){
+        results = character;
+    }else{
+        results = character.filter(personaje => personaje.name.toLowerCase().includes(busqueda.toLowerCase()))
+    }
     
     
     return <>
@@ -84,9 +81,9 @@ function RickAndMorty(){
                     specie={personaje.species}
                 />)}
             </div>
-            <div className="container-loader">
+            {/* <div className="container-loader">
                 <Loader/>
-            </div>
+            </div> */}
         </div>
         <BotonTop/>
     </>

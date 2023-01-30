@@ -10,6 +10,7 @@
     align-items: center;
     z-index: 1000;
     background-color: black;
+    background-color: red;
 }
 .title-app-morty{
     font-size: 2.5rem;
@@ -38,12 +39,19 @@
     display: grid;
     gap: 1rem;
 }
-@media screen and (max-width:375px) {
+
+.container-loader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width:468px) {
     .main-morty{
         grid-template-columns: 1fr;
     }
 }
-@media screen and (min-width:376px) {
+@media screen and (min-width:469px) {
     .main-morty{
         grid-template-columns: 1fr 1fr;
     }
@@ -55,32 +63,8 @@
     }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width:992px) {
     .main-morty{
         grid-template-columns:  1fr 1fr 1fr 1fr;
     }
-}
-
-.paginacion{
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    color: white;
-}
-.paginacion.center{
-    margin-bottom: 4rem;
-    background-color: red;
-}
-.end{
-    display: flex;
-    justify-content: end;
-}
-.center{
-    display: flex;
-    justify-content: center;
-}
-.container-loader{
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
