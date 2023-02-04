@@ -1,7 +1,5 @@
 #contact{
     min-height: 480px;
-    padding-top: 3.5rem;
-    background-color: rgb(29, 31, 27);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,7 +7,7 @@
     color: white;
 }
 .form-container{
-    padding-bottom: 1rem;
+    border-radius: 8px;
 }
 .section-title{
     text-align: center;
@@ -24,7 +22,7 @@
 .contact_input{
     width: 100%;
     padding: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     border: none;
     border-radius: 6px;
 }
@@ -55,11 +53,26 @@
 .contact_btn:hover{
     background-color: rgb(206, 30, 30);
 }
+
+/*Modo light*/
+.light{
+    background-color: white;
+}
+.light .contact-form *::placeholder{
+    color: white;
+    background-color: rgb(29, 31, 27);
+}
+.light .contact_input{
+    background-color: rgb(29, 31, 27);
+    color: white;
+}
+
 @media screen and (min-width:768px) {
     .contact-form{
         width: 560px;
     }
     #contact{
         min-height: 100vh;
+        padding-top: 3.5rem;
     }
 }

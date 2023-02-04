@@ -1,5 +1,7 @@
 import "./Project.css";
 import { AiOutlineRight } from "react-icons/ai";
+import { useContext } from "react";
+import { ContextTheme } from "../../Context/ContextTheme";
 
 const project = [
     {  
@@ -18,11 +20,18 @@ const project = [
         title:"App de Países",
         description:"Aplicación que busca todos los países, mediante nombre del pais o region utiliza la Api RestCountries.",
         route:"#/projects/api-countries"
+    },{
+        id:4,
+        title:"App de Cryptomonedas",
+        description:"Aplicación para buscar los mejores precios de las cryptomonedas buscando mediante el nombre además de utilizar la Crypto Api.",
+        route:"#/projects/api-cryptomonedas"
     }
 ]
 
 function Project(){
-    return <section id="project">
+    const {theme} = useContext(ContextTheme);
+
+    return <section id="project" className={`${theme}`}>
         <div className="container section-project">
             <h2 className="section-title">Proyectos</h2>
             <div className="container-project">

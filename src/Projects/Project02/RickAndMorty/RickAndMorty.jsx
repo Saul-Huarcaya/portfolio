@@ -11,6 +11,7 @@ function RickAndMorty(){
     const [pagina,setPagina] = useState(1);
     const [busqueda,setBusqueda] = useState("");
     
+    //llenar el array mediante los datos de la url
     const fetchCharacters = () =>{
         let url = `https://rickandmortyapi.com/api/character/?page=${pagina}`;
         const peticion = fetch(url);
@@ -23,6 +24,7 @@ function RickAndMorty(){
         .catch((error)=>console.log(error))
     }
 
+    /*Si el scroll hace todo el recorrido modifica el contador de la pagina*/
     useEffect(()=>{
         const ScrollMove = () =>{
             const {scrollTop,clientHeight,scrollHeight} = document.documentElement;
@@ -33,21 +35,23 @@ function RickAndMorty(){
 
         window.addEventListener("scroll",ScrollMove);
 
-        /* return () =>{
+        return () =>{
             window.addEventListener("scroll",ScrollMove);
-        } */
+        }
 
     },[]);
 
+    /*Carga los personajes con la primera url y se modifica si cambia la pagina*/
     useEffect(()=>{
         fetchCharacters();
     },[pagina]);
 
-
+    /*busqueda*/
     const HandleBusqueda = (e) =>{
         setBusqueda(e.target.value);
     }
 
+    /* copia del array de los personajes y el filtrado por nombre*/
     let results = [];
 
     if(!busqueda){

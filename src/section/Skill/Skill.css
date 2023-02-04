@@ -1,7 +1,6 @@
 #skill{
     min-height: 100vh;
     padding-top: 4rem;
-    background-color: rgb(29, 31, 27);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -56,6 +55,13 @@
     font-size: 1.5rem;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     line-height: 1.5rem;
+}
+
+.light .card-skill{
+    background-color: rgb(29, 31, 27);
+}
+.light .description_nivel{
+    color: white;
 }
 @media screen and (max-width: 374px){
     .card_logo{

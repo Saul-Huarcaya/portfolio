@@ -1,7 +1,8 @@
 import "./Nav.css";
 import { Link } from "react-scroll";
 import { AiOutlineMenu , AiOutlineClose } from "react-icons/ai";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ContextTheme } from "../../Context/ContextTheme";
 
 const items = [
     {
@@ -30,10 +31,10 @@ const items = [
 
 function Nav(){
     const [visible,setVisible] = useState(false);
-
+    const {handleTheme} = useContext(ContextTheme);
 
     return <header className="header">
-            <nav className="container nav">
+            <nav className="container nav">   
                 <div className={`nav__menu ${visible ? "menu-visible" : null}`}>
                     <div className="icon-mobile visibilidad" onClick={() => setVisible(!visible)}>
                         <AiOutlineClose/> 
@@ -54,6 +55,10 @@ function Nav(){
                         }
                     </ul>
                 </div>
+
+                <button className="btn-theme" onClick={handleTheme}>
+                ☀️
+                </button>
                 <div className="icon-mobile visibilidad" onClick={()=> setVisible(!visible)}>
                     <AiOutlineMenu/>
                 </div>

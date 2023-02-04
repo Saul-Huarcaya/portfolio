@@ -2,11 +2,14 @@ import "./Contact.css";
 import {useForm} from "react-hook-form";
 import Loader from "../../components/Loader/Loader";
 import { useState } from "react";
+import { useContext } from "react";
+import { ContextTheme } from "../../Context/ContextTheme";
 
 function Contact(){
 
     const {register,handleSubmit,formState:{errors},reset} = useForm();
     const [loading,setLoading] = useState(false);
+    const {theme} = useContext(ContextTheme);
 
     const obtenerValores = (data) =>{
         if(data){
@@ -34,8 +37,8 @@ function Contact(){
         }
     }
 
-    return <section id="contact" className="container">
-        <div className="form-container">
+    return <section id="contact" className={`${theme}`}>
+        <div className="form-container container">
             <h2 className="section-title">Contact</h2>
             <form className="contact-form" onSubmit={handleSubmit(obtenerValores)}>
                 {errors.nombre?.type === "required" && <p className="aviso">nombre obligatorio</p>}
@@ -44,18 +47,20 @@ function Contact(){
                 placeholder="Nombre"
                 name="nombre" 
                 className="contact_input"
+                autoComplete="off"
                 {...register('nombre',{
                     required:true
                 })}/>
                 
 
-                {errors.email?.type === "required" && <p className="aviso">email obligatorio</p>}
+                {errors.email?.type === "required" && <p className="aviso">Email obligatorio</p>}
                 {errors.email?.type === "pattern" && <p className="aviso">El email es incorrecto</p>}
                 <input
                 type="text"
                 name="email" 
                 placeholder="ejemplo@gmail.com" 
                 className="contact_input"
+                autoComplete="off"
                 {...register('email',{
                     required:true,
                     pattern:/^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/
@@ -77,7 +82,14 @@ function Contact(){
                 <input type="submit" className="contact_btn"/>
             </form>
         </div>
-        {(loading) && <Loader/>}
+            {   
+                (loading) && 
+                <div className="container-loding-thema">
+                    <Loader/>
+                </div>
+
+            }
+        
     </section>
 }
 export default Contact;

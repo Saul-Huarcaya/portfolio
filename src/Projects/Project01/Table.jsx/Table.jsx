@@ -29,8 +29,8 @@ function Table(){
     
     return(
         <div className="container-table">
-            <table>
-                <thead>
+            <table className="table-crud">
+                <thead >
                     <tr>
                         <th>Nombre</th>
                         <th>Apellido</th>

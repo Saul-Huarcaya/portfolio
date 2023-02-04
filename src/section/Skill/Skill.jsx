@@ -7,6 +7,8 @@ import {DiGit} from "react-icons/di";
 import {DiPhp} from "react-icons/di";
 import {DiMysql} from "react-icons/di";
 import {DiNodejsSmall} from "react-icons/di";
+import { useContext } from "react";
+import { ContextTheme } from "../../Context/ContextTheme";
 
 const habilidades = [
     {
@@ -69,7 +71,10 @@ const habilidades = [
 
 
 function Skill(){
-    return <section id="skill">
+    
+    const {theme} = useContext(ContextTheme);
+
+    return <section id="skill" className={`${theme}`}>
         <div className="container section-skill">
             <h2 className="section-title">Habilidades</h2>
             <div className="container-skill">
