@@ -1,0 +1,44 @@
+.header-ecommerce{
+    background-color: black;
+    color: white;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+.container-hec{
+    width: 100%;
+    display: flex;
+    height: inherit;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 1024px;
+    position: relative;
+}
+.btn-carrito{
+    border: none;
+    background-color: black;
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+}
+.btn-carrito.yeno{
+    background-color: #007bff;
+}
+.btn-carrito:hover{
+    background-color: white;
+    color: black;
+}

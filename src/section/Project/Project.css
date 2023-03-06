@@ -11,7 +11,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 .section-title{
     text-align: center;
@@ -22,8 +22,8 @@
 }
 .container-project{
     display: flex;
-    gap: 1rem;
     flex-wrap: wrap;
+    gap: 1rem;
     justify-content: center;
 }
 .card-project{
@@ -34,22 +34,28 @@
     color: black;
     padding: 1rem;
     border-radius: 5px;
-    width: 100%;
-    max-width: 380px;
+    width: 32%;
     gap: 0.5rem;
     text-align: justify;
 }
 .card-project-title{
     text-align: center;
     color: rgb(29, 31, 27);
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 600;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .card-description{
     text-align: justify;
     color: rgb(29, 31, 27);
+}
+.container-btn-project{
+    width: 100%;
+    flex: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
 }
 .btn-project{
     background-color: brown;
@@ -78,21 +84,26 @@
 .light .btn-project{
     background-color: brown;
 }
-
-@media screen and (min-width:769px) {
+@media screen and (max-width:540px){
+    .card-project{
+        width: 100%;
+    }
+}
+@media screen and (min-width:541px){
+    .card-project{
+        width: 48%;
+    }
     .container-project{
         padding: 0rem 1rem;
     }
+}
+@media screen and (min-width:940px){
     .card-project{
-        max-width: 360px;
+        width: 32%;
     }
 }
-
 @media screen and (min-width:1024px) {
     #project{
         padding-top: 4rem;
-    }
-    .card-project{
-        max-width: 380px;
     }
 }

@@ -7,6 +7,7 @@ import Crud from './Projects/Project01/Crud/Crud';
 import RickAndMorty from './Projects/Project02/RickAndMorty/RickAndMorty';
 import RestCountries from './Projects/Project03/RestCountries/RestCountries';
 import ApiCoin from './Projects/project04/ApiCoin/ApiCoin';
+import Ecommerce from './Projects/Project05/Ecommerce';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
         <Route path='/projects/rick-and-morty' element={<RickAndMorty/>}/>
         <Route path='/projects/api-countries' element={<RestCountries/>}/>
         <Route path='/projects/api-cryptomonedas' element={<ApiCoin/>}/>
+        <Route path="/projects/ecommerce" element={<Ecommerce/>}/>
       </Routes>
     </div>
   )

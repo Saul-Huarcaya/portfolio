@@ -25,6 +25,12 @@ const project = [
         title:"App de Cryptomonedas",
         description:"Aplicación para buscar los mejores precios de las cryptomonedas buscando mediante el nombre además de utilizar la Crypto Api.",
         route:"#/projects/api-cryptomonedas"
+    },
+    {
+        id:5,
+        title:"Carrito de Compras",
+        description:"Aplicación que simula el proceso para adquirir uno o varios productos tecnológicos.",
+        route:"#/projects/ecommerce"
     }
 ]
 
@@ -37,11 +43,15 @@ function Project(){
             <div className="container-project">
                 {
                     project.map((el)=> <div className="card-project" key={el.id}>
-                        <h3 className="card-project-title">{el.title}</h3>
-                        <p className="card-project-description">{el.description}</p>
-                        <a href={el.route} className="btn-project" target="_blank">
-                            <AiOutlineRight/>
-                        </a>
+                        <div className="card-project-content">
+                            <h3 className="card-project-title">{el.title}</h3>
+                            <p className="card-project-description">{el.description}</p>
+                        </div>
+                        <div className="container-btn-project">
+                            <a href={el.route} className="btn-project" target="_blank">
+                                <AiOutlineRight/>
+                            </a>
+                        </div>
                     </div>
                     )
                 }
