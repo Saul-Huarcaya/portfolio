@@ -12,9 +12,9 @@ function RickAndMorty(){
     const [busqueda,setBusqueda] = useState("");
     
     //llenar el array mediante los datos de la url
-    const fetchCharacters = () =>{
-        let url = `https://rickandmortyapi.com/api/character/?page=${pagina}`;
-        const peticion = fetch(url);
+
+    useEffect(() =>{
+        const peticion = fetch(`https://rickandmortyapi.com/api/character/?page=${pagina}`);
         peticion.then(data =>data.json())
         .then(res =>
             res.results.map((personaje)=>{
@@ -22,29 +22,24 @@ function RickAndMorty(){
             })
         )
         .catch((error)=>console.log(error))
+    },[pagina])
+    
+    /*funcion que observa el scroll y modifica la pagina*/
+    const ScrollMove = () =>{
+        const {scrollTop,clientHeight,scrollHeight} = document.documentElement;
+        if(scrollTop + clientHeight >= scrollHeight){
+            setPagina((e) => e + 1);
+        }
     }
 
-    /*Si el scroll hace todo el recorrido modifica el contador de la pagina*/
+    /*Evento del scroll*/
     useEffect(()=>{
-        const ScrollMove = () =>{
-            const {scrollTop,clientHeight,scrollHeight} = document.documentElement;
-            if(scrollTop + clientHeight >= scrollHeight){
-                setPagina((e) => e + 1);
-            }
-        }
-
         window.addEventListener("scroll",ScrollMove);
 
         return () =>{
             window.addEventListener("scroll",ScrollMove);
         }
-
     },[]);
-
-    /*Carga los personajes con la primera url y se modifica si cambia la pagina*/
-    useEffect(()=>{
-        fetchCharacters();
-    },[pagina]);
 
     /*busqueda*/
     const HandleBusqueda = (e) =>{

@@ -13,7 +13,8 @@ function Home(){
         <div className="container container-home">
             <div className="container-presentation">
                 <h1 
-                className="text_title">Hola,Soy Saul Huarcaya</h1>
+                className="text_title"
+                >Hola,Soy Saul Huarcaya</h1>
 
                 <p 
                 className="text_description">Manejo tecnologias de frontend y backend me considero entusiasta y perserverante en lo que Hago.</p>

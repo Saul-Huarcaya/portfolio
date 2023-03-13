@@ -1,104 +1,130 @@
 import "./Skill.css";
-import {DiHtml5} from "react-icons/di";
-import {DiCss3} from "react-icons/di";
-import {DiJavascript1} from "react-icons/di";
-import {DiReact} from "react-icons/di";
-import {DiGit} from "react-icons/di";
-import {DiPhp} from "react-icons/di";
-import {DiMysql} from "react-icons/di";
-import {DiNodejsSmall} from "react-icons/di";
+/*------------------------------------- Frontend---------------------------------------*/
+import { DiHtml5 , DiCss3 , DiJavascript1 , DiReact, DiBootstrap} from "react-icons/di";
+
+/*------------------------------------- Backend --------------------------------------*/
+import { DiNodejsSmall , DiMysql, DiPhp , DiMongodb , DiMsqlServer } from "react-icons/di";
+
+/*--------------------------------------Tools----------------------------------------*/
+import { DiGit , DiVisualstudio , DiGithubBadge , DiNpm} from "react-icons/di";
+
 import { useContext } from "react";
 import { ContextTheme } from "../../Context/ContextTheme";
 
-const habilidades = [
-    {
-        id : 1,
-        title : "HTML5",
-        logo: <DiHtml5/>,
-        nivel:"Intermedio",
-        color: "#e34c26"
-    },
-    {
-        id : 2,
-        title : "CSS",
-        logo : <DiCss3/>,
-        nivel : "Intermedio",
-        color : "#264de4"
-    },
-    {
-        id:3,
-        title:"JavaScript",
-        logo: <DiJavascript1/>,
-        nivel:"Intermedio",
-        color: "#F0DB4F"
-    },
-    {
-        id:4,
-        title:"React JS",
-        logo: <DiReact/>,
-        nivel:"Intermedio",
-        color: "#61DBFB"
-    },
-    {
-        id:5,
-        title:"PHP",
-        logo: <DiPhp/>,
-        nivel:"Intermedio",
-        color: "#777BB3"
-    },
-    {
-        id:6,
-        title:"MYSQL",
-        logo: <DiMysql/>,
-        nivel:"Intermedio",
-        color: "#00758F"
-    },
-    {
-        id:7,
-        title:"GIT",
-        logo: <DiGit/>,
-        nivel:"Basico",
-        color: "#F1502F"
-    },{
-        id:8,
-        title:"Node Js",
-        logo: <DiNodejsSmall/>,
-        nivel: "Basico",
-        color:"#3c873a"
-    }
-];
+const habilidades = {
+    frontend: [
+        {
+            id:1,
+            logo:<DiHtml5/>,
+            color:"#e34c26",
+            title:"HTML"
+        },{
+            id:2,
+            logo:<DiCss3/>,
+            color:"#264de4",
+            title:"CSS"
+        },{
+            id:3,
+            logo:<DiJavascript1/>,
+            color:"#F0DB4F",
+            title:"JavaScript"
+        },{
+            id:4,
+            logo:<DiBootstrap/>,
+            color:"#563d7c",
+            title:"Bootstrap"
+        },{
+            id:5,
+            logo:<DiReact/>,
+            color:"#61DBFB",
+            title:"React JS"
+        } 
+    ],
+    backend:[
+        {
+            id:1,
+            logo: <DiPhp/>,
+            color:"#777BB3",
+            title:"PHP"
+        },{
+            id:2,
+            logo:<DiNodejsSmall/>,
+            color:"#3c873a",
+            title:"Node JS"
+        },{   
+            id:3,
+            logo: <DiMysql/>,
+            color:"#00758F",
+            title:"Mysql"           
+        },{
+            id:4,
+            logo:<DiMsqlServer/>,
+            color:"#FF0000",
+            title:"SqlServer"
+        },{
+            id:5,
+            logo:<DiMongodb/>,
+            color:"#4DB33D",
+            title:"Mongo"
+        }
+    ],
+    tools:[
+        {
+            id:1,
+            logo:<DiVisualstudio/>,
+            color:"#6ac1b9",
+            title:"VS Code"
+        },{
+            id:2,
+            logo:<DiGit/>,
+            color:"#F1502F",
+            title:"Git"
+        },{
+            id:3,
+            logo:<DiGithubBadge/>,
+            color:"#000000",
+            title:"Github"
+        },{
+            id:4,
+            logo:<DiNpm/>,
+            color:"#CC3534",
+            title:"Npm"
+        }
+    ]
+}
 
 
+export function Clusterskill({grupo,titulo}){
+
+    const {theme} = useContext(ContextTheme);
+
+    return (<div className={`subcontainer-skill ${theme}`}>
+            <h3 className="title-subcontainer">{titulo}</h3>
+            <div className="card-subcontainer">
+                {grupo.map((item)=> 
+                    <div key={item.id} style={{color:item.color}} className="content-subcontainer">
+                        <div className="card-logo">
+                            <div className="imgagen-logo">{item.logo}</div>
+                            <p className="title-logo">{item.title}</p>
+                        </div>
+                    </div>
+                )}
+            </div>
+    </div>)
+}
 
 function Skill(){
-    
     const {theme} = useContext(ContextTheme);
 
     return <section id="skill" className={`${theme}`}>
         <div className="container section-skill">
             <h2 className="section-title">Habilidades</h2>
             <div className="container-skill">
-                {
-                    habilidades.map(skill =>
-                        <div className="card-skill" key={skill.id} style={{borderBottom: `8px solid ${skill.color}`}}>
-                            <div className="card_content">
-                                <div className="card_logo" style={{color: skill.color}}>{skill.logo}</div>
-                                <div className="card_description">
-                                    <h3 
-                                    className="title-skill" 
-                                    style={{color: skill.color}}
-                                    >{skill.title}</h3>
-                                    
-                                    <p className="description_nivel">
-                                        <span 
-                                        className="text_nivel" 
-                                        style={{color: skill.color}}>Nivel: </span>{skill.nivel}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    )
-                }
+
+                <Clusterskill grupo={habilidades.frontend} titulo="Frontend"/>
+                <Clusterskill grupo={habilidades.backend} titulo="Backend"/>
+                <Clusterskill grupo={habilidades.tools} titulo="Tools"/>
+
             </div>  
         </div>
     </section>

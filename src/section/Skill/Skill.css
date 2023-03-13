@@ -17,68 +17,65 @@
 
 .container-skill{
     display: grid;
-    width: 100%;
+    grid-template-columns: 1fr;
     gap: 1rem;
+    width: 100%;
 }
-
-.card-skill{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.subcontainer-skill{
     background-color: white;
     color: black;
-    padding: 1rem 0.5rem;
     border-radius: 6px;
-    gap: 0.5rem;
-}
-.card_content{
     display: flex;
-    width: 100%;
     gap: 0.5rem;
+    flex-direction: column;
+    padding: 1rem;
 }
-.card_logo{
+.title-subcontainer{
+    text-align: center;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: calc(1.1rem + 1vh);
+    color:rgb(29, 31, 27);
+}
+.card-subcontainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    flex: 100%;
+}
+.imgagen-logo{
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    width: 60%;
+    font-size: calc(5.5rem + 1vh);
 }
-
-.card_description{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
+.title-logo{
+    font-size: calc(1rem + 1vh);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 500;
 }
-
-.title-skill{
-    font-size: 1.5rem;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    line-height: 1.5rem;
-}
-
-.light .card-skill{
+.light .subcontainer-skill{
     background-color: rgb(29, 31, 27);
 }
-.light .description_nivel{
+.light .title-subcontainer{
     color: white;
 }
 @media screen and (max-width: 374px){
-    .card_logo{
-        font-size: calc(4.2rem + 1vh);
-        width: 100%;
+    .card-subcontainer{
+        gap: 1rem;
+    }
+    .imgagen-logo{
+        font-size: calc(4rem + 1vh);
     }
 }
 @media screen and (min-width: 375px) {
-    .container-skill{
-        grid-template-columns: repeat(2,minmax(0,1fr));
+    .card-subcontainer{
+        gap: 0.5rem;
     }
     .card_content{
         flex-direction: column;
-    }
-    .card_logo{
-        font-size: calc(6rem + 1vh);
-        width: 100%;
     }
     .title-skill{
         font-size: calc(1.5rem + 1vh);
@@ -90,6 +87,9 @@
 }
 
 @media screen and (min-width: 575px){
+    .container-skill{
+        grid-template-columns: 1fr 1fr;
+    }
     #skill{
         padding-top: 5rem;
     }
@@ -109,10 +109,6 @@
     }
     .container-skill{
         grid-template-columns: repeat(3,minmax(0,1fr));
-    }
-    .card_logo{
-        font-size: calc(6.5rem + 1vh);
-        width: 80%;
     }
     .card_description{
         width: 100%;
