@@ -32,9 +32,11 @@ function RickAndMorty(){
     /*Evento del scroll*/
     useEffect(()=>{
         window.addEventListener("scroll",ScrollMove);
+        window.addEventListener("touchmove",ScrollMove);
 
         return () =>{
             window.removeEventListener("scroll",ScrollMove);
+            window.removeEventListener("touchmove",ScrollMove);
         }
     },[]);
 
