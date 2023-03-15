@@ -14,7 +14,7 @@ function RickAndMorty(){
     //llenar el array mediante los datos de la url
 
     useEffect(() =>{
-        const peticion = fetch(`https://rickandmortyapi.com/api/character/?page=${pagina}`);
+        let peticion = fetch(`https://rickandmortyapi.com/api/character/?page=${pagina}`);
         peticion.then(data =>data.json())
         .then(res =>
             res.results.map((personaje)=>{
@@ -80,11 +80,12 @@ function RickAndMorty(){
                     specie={personaje.species}
                 />)}
             </div>
-            <div className="container-loader">
-                <Loader/>
-            </div>
+            <BotonTop/>
         </div>
-        <BotonTop/>
+{/*         <div className="container-loader">
+            <Loader/>
+        </div> */}
+        
     </>
 }
 export default RickAndMorty;
