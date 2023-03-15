@@ -34,7 +34,7 @@ function RickAndMorty(){
         window.addEventListener("scroll",ScrollMove);
 
         return () =>{
-            window.addEventListener("scroll",ScrollMove);
+            window.removeEventListener("scroll",ScrollMove);
         }
     },[]);
 
