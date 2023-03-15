@@ -43,17 +43,17 @@ function RickAndMorty(){
         setBusqueda(e.target.value);
     }
 
-    /* copia del array de los personajes y el filtrado por nombre*/
-/*     let results = [];
+    /*copia del array de los personajes y el filtrado por nombre*/
+    let results = [];
 
     if(!busqueda){
         results = character;
     }else{
         results = character.filter(personaje => personaje.name.toLowerCase().includes(busqueda.toLowerCase()))
-    } */
+    } 
     
     
-    return <>
+    return <div>
         <div className="header-morty">
             <h1 className="title-app-morty">Rick and Morty</h1>
             
@@ -69,7 +69,7 @@ function RickAndMorty(){
         </div>
         <div className='container-morty'>
             <div className="main-morty">
-                {(character.length > 0) && character.map(personaje =><CardCharacter 
+                {(results.length > 0) && results.map(personaje =><CardCharacter 
                     key={personaje.id}
                     image={personaje.image}
                     name={personaje.name}
@@ -79,10 +79,10 @@ function RickAndMorty(){
             </div>
             <BotonTop/>
         </div>
-{/*         <div className="container-loader">
+        <div className="container-loader">
             <Loader/>
-        </div> */}
+        </div>
         
-    </>
+    </div>
 }
 export default RickAndMorty;

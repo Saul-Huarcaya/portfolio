@@ -8,7 +8,7 @@ import 'aos/dist/aos.css';
 AOS.init();
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <HashRouter>
-      <App />
-    </HashRouter>
+  <HashRouter>
+    <App />
+  </HashRouter>
 )
