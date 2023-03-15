@@ -12,16 +12,13 @@ function RickAndMorty(){
     const [busqueda,setBusqueda] = useState("");
     
     //llenar el array mediante los datos de la url
-
     useEffect(() =>{
-        let peticion = fetch(`https://rickandmortyapi.com/api/character/?page=${pagina}`);
-        peticion.then(data =>data.json())
-        .then(res =>
-            res.results.map((personaje)=>{
-                setCharacter(e=>[...e,personaje])
-            })
-        )
-        .catch((error)=>console.log(error))
+        const getPersonajes = async () =>{
+            let peticion = await fetch(`https://rickandmortyapi.com/api/character/?page=${pagina}`);
+            let res = await peticion.json();
+            res.results.map((personaje) => setCharacter((e) => [...e,personaje]));
+        }
+        getPersonajes();
     },[pagina])
     
     /*funcion que observa el scroll y modifica la pagina*/
