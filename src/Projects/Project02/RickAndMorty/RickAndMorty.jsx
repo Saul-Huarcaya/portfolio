@@ -47,13 +47,13 @@ function RickAndMorty(){
     }
 
     /* copia del array de los personajes y el filtrado por nombre*/
-    let results = [];
+/*     let results = [];
 
     if(!busqueda){
         results = character;
     }else{
         results = character.filter(personaje => personaje.name.toLowerCase().includes(busqueda.toLowerCase()))
-    }
+    } */
     
     
     return <>
@@ -72,7 +72,7 @@ function RickAndMorty(){
         </div>
         <div className='container-morty'>
             <div className="main-morty">
-                {(results.length > 0) && results.map(personaje =><CardCharacter 
+                {(character.length > 0) && character.map(personaje =><CardCharacter 
                     key={personaje.id}
                     image={personaje.image}
                     name={personaje.name}
