@@ -4,55 +4,50 @@ import Loader from "../../../components/Loader/Loader";
 import "./RickAndMorty.css";
 import CardCharacter from "../CardCharacter/CardCharacter";
 import "../CardCharacter/CardCharacter.css";
+import InfiniteScroll from "react-infinite-scroll-component"
 
 function RickAndMorty(){
 
-    const [character,setCharacter] = useState([]);
-    const [pagina,setPagina] = useState(1);
-    const [busqueda,setBusqueda] = useState("");
+    let [character,setCharacter] = useState([]);
+    let [infoPage,setInfoPage] = useState(null);
+    /* let [busqueda,setBusqueda] = useState(""); */
     
     //llenar el array mediante los datos de la url
-    useEffect(() =>{
-        const getPersonajes = async () =>{
-            let peticion = await fetch(`https://rickandmortyapi.com/api/character/?page=${pagina}`);
-            let res = await peticion.json();
-            res.results.map((personaje) => setCharacter((e) => [...e,personaje]));
-        }
-        getPersonajes();
-    },[pagina])
-    
-    /*funcion que observa el scroll y modifica la pagina*/
-    const ScrollMove = () =>{
-        const {scrollTop,clientHeight,scrollHeight} = document.documentElement;
-        if(scrollTop + clientHeight >= scrollHeight){
-            setPagina((e) => e + 1);
-        }
+    const getPersonajes = (url) =>{
+        console.log(url);
+        let ruta = url == null ? `https://rickandmortyapi.com/api/character/?page=${1}`: url; 
+
+        fetch(ruta)
+        .then((res) => 
+            res.json())
+        .then((data) => {
+            setInfoPage(data.info.next);
+            data.results.map((personaje) => setCharacter((e) => [...e,personaje]))
+        })
     }
-
-    /*Evento del scroll*/
+    
     useEffect(()=>{
-        window.addEventListener("scroll",ScrollMove);
-        window.addEventListener("touchmove",ScrollMove);
+        getPersonajes(infoPage);
+    },[])
 
-        return () =>{
-            window.removeEventListener("scroll",ScrollMove);
-            window.removeEventListener("touchmove",ScrollMove);
-        }
-    },[]);
 
     /*busqueda*/
-    const HandleBusqueda = (e) =>{
+    /* const HandleBusqueda = (e) =>{
         setBusqueda(e.target.value);
-    }
+    } */
 
     /*copia del array de los personajes y el filtrado por nombre*/
-    let results = [];
+    /* let results = [];
 
     if(!busqueda){
         results = character;
     }else{
         results = character.filter(personaje => personaje.name.toLowerCase().includes(busqueda.toLowerCase()))
-    } 
+    }  */
+
+    {/* <div className="container-loader">
+                    <Loader/>
+                </div> */}
     
     
     return <div>
@@ -61,30 +56,35 @@ function RickAndMorty(){
             
             <input 
                 type="text" 
-                value={busqueda} 
-                onChange={HandleBusqueda} 
+                /* value={busqueda} 
+                onChange={HandleBusqueda}  */ 
                 placeholder="Buscar personaje" 
                 maxLength="50"
                 className="input-busqueda" 
             />
 
-        </div>
-        <div className='container-morty'>
+        </div> 
+        <div className='container-morty' id="infiniteScroll">
+            <InfiniteScroll
+                dataLength={character.length}
+                next={() =>getPersonajes(infoPage)}
+                hasMore={true}
+                loader={<h4>cargando....</h4> }
+                scrollableTarget="infiniteScroll"
+            >
+                
             <div className="main-morty">
-                {(results.length > 0) && results.map(personaje =><CardCharacter 
+                {character.map(personaje =><CardCharacter 
                     key={personaje.id}
                     image={personaje.image}
                     name={personaje.name}
                     status={personaje.status}
                     specie={personaje.species}
-                />)}
+                    />)}
             </div>
-            <BotonTop/>
+            {/* <BotonTop/> */}
+            </InfiniteScroll>
         </div>
-        <div className="container-loader">
-            <Loader/>
-        </div>
-        
     </div>
 }
 export default RickAndMorty;

@@ -25,15 +25,20 @@
 }
 .container-morty{
     padding-top: 7rem;
+    height: 800px;
+    overflow: auto;
     padding-left: 1rem;
     padding-right: 1rem;
     padding-bottom: 1rem;
     max-width: 1024px;
+    min-height: 500px;
     margin-left: auto;
     margin-right: auto;
     gap:1.5rem;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    background-color: red;
 }
 .main-morty{
     display: grid;
