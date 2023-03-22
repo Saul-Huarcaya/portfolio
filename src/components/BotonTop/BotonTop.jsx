@@ -1,7 +1,6 @@
 import "./BotonTop.css";
 import { AiOutlineArrowUp } from "react-icons/ai";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect , useState } from "react";
 
 function BotonTop(){
 

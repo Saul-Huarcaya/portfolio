@@ -1,15 +1,22 @@
+.container-app-morty{
+    overflow: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 7rem;
+}
+
 .header-morty{
     display: flex;
     flex-direction: column;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: calc(100% - 10px);
     height: 6rem;
     justify-content: space-evenly;
     align-items: center;
     z-index: 1000;
-    background-color: black;
+    background-color: rgb(29, 31, 27);
 }
 .title-app-morty{
     font-size: 2.5rem;
@@ -23,34 +30,21 @@
     padding: 0.4rem 1rem 0.4rem 0.5rem;
     width: 240px;
 }
-.container-morty{
-    padding-top: 7rem;
-    height: 800px;
-    overflow: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-bottom: 1rem;
-    max-width: 1024px;
-    min-height: 500px;
-    margin-left: auto;
-    margin-right: auto;
-    gap:1.5rem;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    background-color: red;
-}
 .main-morty{
     display: grid;
     gap: 1rem;
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
 }
-
 .container-loader{
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 @media screen and (max-width:468px) {
     .main-morty{
         grid-template-columns: 1fr;
