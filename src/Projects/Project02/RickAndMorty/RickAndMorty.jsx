@@ -4,7 +4,6 @@ import BotonTop from "../../../components/BotonTop/BotonTop.jsx";
 import "./RickAndMorty.css";
 import CardCharacter from "../CardCharacter/CardCharacter";
 import "../CardCharacter/CardCharacter.css";
-import InfiniteScroll from "react-infinite-scroll-component";
 
 function RickAndMorty(){
 

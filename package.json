@@ -20,7 +20,8 @@
     "react-icons": "^4.7.1",
     "react-infinite-scroll-component": "^6.1.0",
     "react-router-dom": "^6.4.5",
-    "react-scroll": "^1.8.9"
+    "react-scroll": "^1.8.9",
+    "scrollreveal": "^4.0.9"
   },
   "devDependencies": {
     "@originjs/vite-plugin-require-context": "^1.0.9",

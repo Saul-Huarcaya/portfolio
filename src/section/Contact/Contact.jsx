@@ -4,8 +4,25 @@ import Loader from "../../components/Loader/Loader";
 import { useState } from "react";
 import { useContext } from "react";
 import { ContextTheme } from "../../Context/ContextTheme";
+import ScrollReveal from 'scrollreveal';
+import { useEffect } from "react";
 
 function Contact(){
+    
+    useEffect(()=>{
+        const sr = ScrollReveal({
+            origin:"left",
+            duration:2000,
+            delay:0,
+            reset:true
+        });
+        sr.reveal(".section-title-03",{distance:"100px",duration:1500});
+        sr.reveal(".contact_input.nombre",{distance:"120px",duration:2000});
+        sr.reveal(".contact_input.email",{distance:"240px",duration:2000});
+        sr.reveal(".contact_input.comentario",{distance:"260px",duration:2500});
+        sr.reveal(".contact_btn",{distance:"2800px",duration:1500});
+    },[]);
+
 
     const {register,handleSubmit,formState:{errors},reset} = useForm();
     const [loading,setLoading] = useState(false);
@@ -39,14 +56,14 @@ function Contact(){
 
     return <section id="contact" className={`${theme}`}>
         <div className="form-container container">
-            <h2 className="section-title">Contact</h2>
+            <h2 className="section-title section-title-03">Contact</h2>
             <form className="contact-form" onSubmit={handleSubmit(obtenerValores)}>
                 {errors.nombre?.type === "required" && <p className="aviso">nombre obligatorio</p>}
                 <input
                 type="text" 
                 placeholder="Nombre"
                 name="nombre" 
-                className="contact_input"
+                className="contact_input nombre"
                 autoComplete="off"
                 {...register('nombre',{
                     required:true
@@ -59,7 +76,7 @@ function Contact(){
                 type="text"
                 name="email" 
                 placeholder="ejemplo@gmail.com" 
-                className="contact_input"
+                className="contact_input email"
                 autoComplete="off"
                 {...register('email',{
                     required:true,
@@ -73,7 +90,7 @@ function Contact(){
                 rows="8"
                 name="comentario" 
                 placeholder="Escribe tu comentario" 
-                className="contact_input"
+                className="contact_input comentario"
                 {...register('comentario',{
                     maxLength:255
                 })

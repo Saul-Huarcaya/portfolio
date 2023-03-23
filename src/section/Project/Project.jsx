@@ -1,7 +1,9 @@
 import "./Project.css";
+import { useEffect  } from "react";
 import { AiOutlineRight } from "react-icons/ai";
 import { useContext } from "react";
 import { ContextTheme } from "../../Context/ContextTheme";
+import ScrollReveal from 'scrollreveal';
 
 const project = [
     {  
@@ -35,11 +37,21 @@ const project = [
 ]
 
 function Project(){
+    useEffect(()=>{
+        const sr = ScrollReveal({
+            distance:"130px",
+            duration:2000,
+            reset:true
+        });
+        sr.reveal(".section-title-01",{origin:"left",delay:100,distance:"100px"});
+        sr.reveal(".container-project",{origin:"left",delay:160,distance:"150px"})
+    },[])
+
     const {theme} = useContext(ContextTheme);
 
     return <section id="project" className={`${theme}`}>
         <div className="container section-project">
-            <h2 className="section-title">Proyectos</h2>
+            <h2 className="section-title section-title-01">Proyectos</h2>
             <div className="container-project">
                 {
                     project.map((el)=> <div className="card-project" key={el.id}>

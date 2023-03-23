@@ -2,10 +2,22 @@ import "./Home.css";
 import img_author from "../../assets/Imagenes/001212518.jpg";
 import BotonCV from "../../components/BotonCv/BotonCv";
 import CV from "../../assets/CV/CV-SAUL-HUARCAYA-QUISPE.pdf";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ContextTheme } from "../../Context/ContextTheme";
+import ScrollReveal from 'scrollreveal';
 
 function Home(){
+
+    useEffect(()=>{
+        const sr = ScrollReveal({
+            origin:"top",
+            distance:"130px",
+            duration:2000,
+            reset:true
+        });
+        sr.reveal("#home",{origin:"top",delay:100,distance:"400px"});
+    },[]);
+    
 
     const {theme} = useContext(ContextTheme);
 

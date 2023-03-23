@@ -10,6 +10,8 @@ import { DiGit , DiVisualstudio , DiGithubBadge , DiNpm} from "react-icons/di";
 
 import { useContext } from "react";
 import { ContextTheme } from "../../Context/ContextTheme";
+import ScrollReveal from 'scrollreveal';
+import { useEffect } from "react";
 
 const habilidades = {
     frontend: [
@@ -114,11 +116,22 @@ export function Clusterskill({grupo,titulo}){
 }
 
 function Skill(){
+    
+    useEffect(()=>{
+        const sr = ScrollReveal({
+            distance:"130px",
+            duration:2000,
+            reset:true
+        });
+        sr.reveal(".section-title-02",{origin:"left",delay:100,distance:"100px"});
+        sr.reveal(".container-skill",{origin:"left",delay:150,distance:"150px"});
+    },[]);
+
     const {theme} = useContext(ContextTheme);
 
     return <section id="skill" className={`${theme}`}>
         <div className="container section-skill">
-            <h2 className="section-title">Habilidades</h2>
+            <h2 className="section-title section-title-02">Habilidades</h2>
             <div className="container-skill">
 
                 <Clusterskill grupo={habilidades.frontend} titulo="Frontend"/>
