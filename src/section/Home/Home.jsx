@@ -4,6 +4,7 @@ import BotonCV from "../../components/BotonCv/BotonCv";
 import CV from "../../assets/CV/CV-SAUL-HUARCAYA-QUISPE.pdf";
 import { useContext, useEffect } from "react";
 import { ContextTheme } from "../../Context/ContextTheme";
+import perfil from "../../assets/Imagenes/perfil.png";
 import ScrollReveal from 'scrollreveal';
 
 function Home(){
@@ -11,11 +12,10 @@ function Home(){
     useEffect(()=>{
         const sr = ScrollReveal({
             origin:"top",
-            distance:"130px",
-            duration:2000,
+            duration:1500,
             reset:true
         });
-        sr.reveal("#home",{origin:"top",delay:100,distance:"400px"});
+        sr.reveal(".container-home",{origin:"top",delay:100,distance:"300px"});
     },[]);
     
 

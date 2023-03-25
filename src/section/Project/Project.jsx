@@ -39,12 +39,12 @@ const project = [
 function Project(){
     useEffect(()=>{
         const sr = ScrollReveal({
-            distance:"130px",
-            duration:2000,
+            duration:1500,
+            delay:100,
             reset:true
         });
-        sr.reveal(".section-title-01",{origin:"left",delay:100,distance:"100px"});
-        sr.reveal(".container-project",{origin:"left",delay:160,distance:"150px"})
+        sr.reveal(".section-title-01",{origin:"left",distance:"100px"});
+        sr.reveal(".container-project",{origin:"left",distance:"150px"})
     },[])
 
     const {theme} = useContext(ContextTheme);

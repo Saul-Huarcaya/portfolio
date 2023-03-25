@@ -1,5 +1,20 @@
 import "./Footer.css";
+import ScrollReveal from 'scrollreveal';
+import {useEffect }from "react";
+
 function Footer(){
+    
+    useEffect(()=>{
+        const sr = ScrollReveal({
+            origin:"left",
+            duration:1500,
+            reset:true
+        });
+        sr.reveal(".footer-title",{origin:"top",delay:100,distance:"50px"});
+        sr.reveal(".footer-copy",{origin:"top",delay:100,distance:"50px"});
+        sr.reveal(".footer-links",{origin:"top",delay:100,distance:"50px"});
+    },[]);
+    
     return <footer className="footer">
         <div className="container footer-content">
             <h4 className="footer-title">Software developer 😄</h4>

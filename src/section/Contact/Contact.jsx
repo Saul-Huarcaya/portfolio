@@ -19,8 +19,8 @@ function Contact(){
         sr.reveal(".section-title-03",{distance:"100px",duration:1500});
         sr.reveal(".contact_input.nombre",{distance:"120px",duration:2000});
         sr.reveal(".contact_input.email",{distance:"240px",duration:2000});
-        sr.reveal(".contact_input.comentario",{distance:"260px",duration:2500});
-        sr.reveal(".contact_btn",{distance:"2800px",duration:1500});
+        sr.reveal(".contact_input.comentario",{distance:"260px",duration:2000});
+        sr.reveal(".contact_btn",{distance:"300px",duration:2000});
     },[]);
 
 

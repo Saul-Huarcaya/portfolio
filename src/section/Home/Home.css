@@ -38,7 +38,8 @@
 }
 .img_author{
     margin-bottom: 1rem;
-    border: 8px solid rgb(29, 31, 27);
+    border: 8px solid rgb(29, 31, 27); 
+    background-color: rgb(29, 31, 27);
 }
 /*Modo light*/
 
