@@ -1,4 +1,4 @@
-import "./Contact.css";
+import "./Contacto.css";
 import {useForm} from "react-hook-form";
 import Loader from "../../components/Loader/Loader";
 import { useState } from "react";
@@ -7,7 +7,7 @@ import { ContextTheme } from "../../Context/ContextTheme";
 import ScrollReveal from 'scrollreveal';
 import { useEffect } from "react";
 
-function Contact(){
+function Contacto(){
     
     useEffect(()=>{
         const sr = ScrollReveal({
@@ -56,7 +56,7 @@ function Contact(){
 
     return <section id="contact" className={`${theme}`}>
         <div className="form-container container">
-            <h2 className="section-title section-title-03">Contact</h2>
+            <h2 className="section-title section-title-03">Contacto</h2>
             <form className="contact-form" onSubmit={handleSubmit(obtenerValores)}>
                 {errors.nombre?.type === "required" && <p className="aviso">nombre obligatorio</p>}
                 <input
@@ -109,4 +109,4 @@ function Contact(){
         
     </section>
 }
-export default Contact;
+export default Contacto;

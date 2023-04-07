@@ -10,9 +10,9 @@ function Footer(){
             duration:1500,
             reset:true
         });
-        sr.reveal(".footer-title",{origin:"top",delay:100,distance:"50px"});
-        sr.reveal(".footer-copy",{origin:"top",delay:100,distance:"50px"});
-        sr.reveal(".footer-links",{origin:"top",delay:100,distance:"50px"});
+        sr.reveal(".footer-title",{origin:"top",delay:100,distance:"100px"});
+        sr.reveal(".footer-copy",{origin:"top",delay:100,distance:"100px"});
+        sr.reveal(".footer-links",{origin:"top",delay:100,distance:"100px"});
     },[]);
     
     return <footer className="footer">
