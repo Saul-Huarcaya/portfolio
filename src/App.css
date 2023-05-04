@@ -14,6 +14,12 @@ html{
     margin-right: 1rem;
     max-width: 1024px;
 }
+@media screen and (min-width:769px) {
+    .container{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
 ::-webkit-scrollbar{
     width: 10px;
 }

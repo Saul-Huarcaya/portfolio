@@ -1,13 +1,11 @@
-import { ProviderEcommerce} from "../../Context/ContextEcommerce";
-import MainEcommerce from "./MainEcommerce/MainEcommerce";
-import HeaderEcommerce from "./HeaderEcommerce/HeaderEcommerce";
+/* import { ProviderEcommerce} from "../../Context/ContextEcommerce"; */
+import NavEcommerce from "./NavEcommerce.jsx";
+import Products from "./Products.jsx";
 
 function Ecommerce(){
-    return (
-        <ProviderEcommerce>
-            <HeaderEcommerce/>
-            <MainEcommerce/>  
-        </ProviderEcommerce>
-    ) 
+    return (<>
+            <NavEcommerce/>
+            <Products/>
+    </>) 
 }
 export default Ecommerce;

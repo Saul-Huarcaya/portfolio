@@ -1,6 +1,6 @@
 import { useEffect , useState , useRef } from "react";
-import Loader from "../../../components/Loader/Loader";
-import BotonTop from "../../../components/BotonTop/BotonTop.jsx";
+import Loader from "../../../components/Loader";
+import BotonTop from "../../../components/BotonTop";
 import "./RickAndMorty.css";
 import CardCharacter from "../CardCharacter/CardCharacter";
 import "../CardCharacter/CardCharacter.css";

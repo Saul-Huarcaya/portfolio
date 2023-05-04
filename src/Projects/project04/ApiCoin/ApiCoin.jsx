@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import BotonTop from "../../../components/BotonTop/BotonTop";
+import BotonTop from "../../../components/BotonTop";
 import "./ApiCoin.css";
 
 function ApiCoin(){
