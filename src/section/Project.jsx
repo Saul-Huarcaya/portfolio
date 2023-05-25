@@ -1,39 +1,10 @@
-import { useEffect  } from "react";
-import { AiOutlineRight } from "react-icons/ai";
-import { useContext } from "react";
+import { useEffect , useContext, useState  } from "react";
+/* import { AiOutlineRight } from "react-icons/ai"; */
 import { ContextTheme } from "../Context/ContextTheme";
 import ScrollReveal from 'scrollreveal';
 import styled from 'styled-components';
-
-const Section = styled.section`
-    min-height: 100vh;
-    padding-top: 3.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: ${props => (props.color === "dark")?"dark":"white"};
-
-    @media screen and (min-width:1024px) {
-        padding-top: 4rem;
-    }
-`;
-
-const ContainerProject = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1.5rem;
-`;
-
-const TitleProject = styled.h2`
-    text-align: center;
-    font-size: 2.2rem;
-    letter-spacing: 2px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: ${props => (props.color === "dark") ? "white":"brown" };
-`;
+import { BsFillArrowDownLeftCircleFill , BsFillArrowUpRightCircleFill , BsGithub} from "react-icons/bs";
+import { IoOpenOutline } from "react-icons/io5";
 
 const ContainerProjects = styled.div`
     display: flex;
@@ -52,90 +23,260 @@ const CardProject = styled.div`
     align-items: center;
     background-color: ${props => props.color === "dark" ? "white":"rgb(29, 31, 27)"};
     color: ${props => props.color === "dark" ?"rgb(29, 31, 27)":"white"};
-    padding: 1rem;
-    border-radius: 5px;
-    width: 32%;
-    gap: 0.5rem;
+    border-radius: 4px;
+    gap: 1rem;
     text-align: justify;
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    border: 6px solid ${props => props.color === "dark" ?"white":"rgb(29, 31, 27)"};
 
     @media screen and (max-width:540px){
         width: 100%;
+        height: 260px;
     }
     @media screen and (min-width:541px){
         width: 48%;
+        height: 260px;
+    }
+    @media screen and (min-width:768px){
+        height: 220px;
     }
     @media screen and (min-width:940px){
         width: 32%;
     }
+    /* img{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    } */
+`;
+
+const CardImg = styled.div`
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    flex: 1;
+    img{
+        width: 100%;
+        height: 100%;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+
+    button{
+        position: absolute;
+        border-top-left-radius: 6px;
+        border-bottom-right-radius: 2px;
+        overflow: hidden;
+        width: 3rem;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.25rem;
+        outline: none;
+        border: none;
+        right: 0rem;
+        bottom: 0rem;
+        cursor: pointer;
+        font-size: 1.8rem;
+        transition: color 0.3s ease-in, background-color 0.3s ease-in-out;
+        color: white;
+        background-color: rgb(252, 19, 19);
+    }
+    button:hover{
+        background-color: black;
+        color: white;
+    }
+    
 `;
 
 const CardContent = styled.div`
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+    padding: 1rem 1rem 0rem 1rem;
+    position: absolute;
+    z-index: 80;
+    overflow: hidden;
+    bottom: ${props => props.visible ? "0%" : "100%"} ;
+    left: ${props => props.visible ? "0" : "100%"};
+    transition: bottom 0.3s ease-in , left 0.3s ease-in;
+    background-color: ${props => props.color === "dark" ?"white":"rgb(29, 31, 27)"};
+    height: inherit;
+    width: 100%;
     h3{
         text-align: center;
-        font-size: 1.3rem;
+        font-size: calc(1rem + 1vh);
         font-weight: 600;
-        margin-bottom: 0.5rem;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: rgb(252, 19, 19);
+        color: ${props => props.color === "dark" ?"rgb(252, 19, 19)":"white"};
     }
     p{
         text-align: justify;
     }
-`;
 
-
-const ButtonContainer = styled.div`
-    width: 100%;
-    flex: 100%;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-
-    a{
-        background-color: brown;
+    button{
+        border-top-left-radius: 8px;
+        color:white;
+        position: absolute;
+        width: 3rem;
+        height: 3rem;
+        outline: none;
+        border: none;
+        right: 0;
+        bottom: 0;
+        cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: white;
-        border-radius: 50%;
-        padding: 0.8rem;
-        font-size: 1.5rem;
-        transition: all 0.2s ease-in-out;
-    }
-
-    a:hover{
-        transform: translate(5px,0px);
+        color: rgb(252, 19, 19);
+        font-size: 1.7rem;
         background-color: rgb(252, 19, 19);
+        color: white;
+        transition: color 0.3s ease-in, background-color 0.3s ease-in-out;
+    }
+    button:hover{
+        background-color: black;
+        color: white;
+    }   
+`;
+
+const ContainerButtons = styled.div`
+    align-self: flex-start;
+    display: flex;
+    width: 6rem;
+    height:3rem;
+    div{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+    a{
+        font-size: 1.3rem;
+        background-color: rgb(252, 19, 19);
+        padding: 0.4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: rgb(252, 19, 19);
+        color: white;
+    }
+    a:hover{
+        background-color:black;
     }
 `;
+
+export function Card({title,description,route,route_github,route_img}){
+    
+    const {theme} = useContext(ContextTheme);
+    const [visible,setVisible] = useState(false);
+    
+    return  <CardProject color={theme}>
+                <CardImg>
+                    <img src={route_img} alt="ejemplo"/>
+                    <button onClick={() => setVisible(true)}>
+                        <BsFillArrowDownLeftCircleFill/>
+                    </button>
+                </CardImg>
+
+                <CardContent visible={visible} color={theme}>
+                    <h3>{title}</h3>
+                    <p>{description}</p>
+
+                    <ContainerButtons>
+                        <div><a href={route} target="_blank"><BsGithub/></a></div>
+                        <div><a href={route_github} target="_blank"><IoOpenOutline/></a></div>
+                    </ContainerButtons>
+                    
+                    <button onClick={()=> setVisible(false)}>
+                        <BsFillArrowUpRightCircleFill/>
+                    </button>
+                </CardContent>
+
+            </CardProject>
+}
+
+const Section = styled.section`
+    min-height: 100vh;
+    padding-top: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: ${props => (props.color === "dark")?"dark":"white"};
+    
+    @media screen and (min-width:1024px) {
+        padding-top: 4rem;
+    }
+`;
+
+const ContainerProject = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+`;
+
+const TitleProject = styled.h2`
+    text-align: center;
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: ${props => (props.color === "dark") ? "white":"rgb(209, 28, 28)" };
+`;
+
 const project = [
     {  
         id:1,
         title:"CRUD",
-        description:"Son operaciones para operar la información (crear , leer , actualizar , eliminar) utilizando la api de usecontext + useReducer + useForm.",
-        route:"#/projects/crud"
+        description:"Son operaciones para operar la información (crear, leer, actualizar, eliminar) utilizando la api de usecontext + useReducer + useForm.",
+        route:"#/projects/crud",
+        route_github:"https://github.com/Saul-Huarcaya/crudreact",
+        route_img:"/img-projects/crud.JPG"
     },
     {
         id:2,
         title:"Rick and Morty",
         description:"Aplicación para buscar los personajes de Rick and Morty + scroll infinito , utilizando la Api rickandmorty.",
-        route:"#/projects/rick-and-morty"        
+        route:"#/projects/rick-and-morty",
+        route_github:"https://github.com/Saul-Huarcaya/app-countries",
+        route_img:"/img-projects/rick.JPG"       
     },{
         id:3,
         title:"App de Países",
         description:"Aplicación que busca todos los países, mediante nombre del pais o region utiliza la Api RestCountries.",
-        route:"#/projects/api-countries"
-    },{
+        route:"#/projects/api-countries",
+        route_github:"https://github.com/Saul-Huarcaya/app-countries",
+        route_img:"/img-projects/banderas.JPG"
+    },
+    {
         id:4,
-        title:"App de Cryptomonedas",
-        description:"Aplicación para buscar los mejores precios de las cryptomonedas buscando mediante el nombre además de utilizar la Crypto Api.",
-        route:"#/projects/api-cryptomonedas"
+        title:"Room Homepage",
+        description:"Desafio Room Homepage propuesto por la web FrontendMentor nivel intermedio se realizo con React.",
+        route:"#/projects/room-page",
+        route_github:"https://github.com/Saul-Huarcaya/room-homepage",
+        route_img:"/img-projects/room-homepage.jpg"
     },
     {
         id:5,
         title:"Carrito de Compras",
         description:"Aplicación que simula el proceso para adquirir uno o varios productos tecnológicos.",
-        route:"#/projects/ecommerce"
-    }
+        route:"#/projects/ecommerce",
+        route_github:"https://github.com/Saul-Huarcaya/carrtito-compras",
+        route_img:"/img-projects/carrito.JPG"
+    },
 ];
 
 function Project(){
@@ -159,20 +300,14 @@ function Project(){
             
             <ContainerProjects className="left2">
                 {
-                    project.map((el)=> <CardProject color={theme} key={el.id}>
-
-                        <CardContent>
-                            <h3>{el.title}</h3>
-                            <p>{el.description}</p>
-                        </CardContent>
-
-                        <ButtonContainer>
-                            <a href={el.route} target="_blank">
-                                <AiOutlineRight/>
-                            </a>
-                        </ButtonContainer>
-
-                    </CardProject>
+                    project.map((el)=> <Card 
+                        key={el.id}
+                        title={el.title}
+                        description={el.description}
+                        route={el.route}
+                        route_github={el.route_github}
+                        route_img={el.route_img}
+                    />
                     )
                 }
             </ContainerProjects>

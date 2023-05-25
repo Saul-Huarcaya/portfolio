@@ -28,6 +28,6 @@ html{
     background-color: black;
 }
 ::-webkit-scrollbar-thumb{
-    background-color: brown;
+    background-color: rgb(209, 28, 28);
     border-radius: 20px;
 }

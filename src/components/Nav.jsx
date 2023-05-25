@@ -25,17 +25,22 @@ const NavbarContainer = styled.nav`
         justify-content: space-between;
         height: 3rem;
     }
+    @media screen and (min-width:769px)  {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        align-items: center;
+    }
 `;
 
 const NavbarWrapper = styled.div`
     @media screen and (max-width:768px){
         position: fixed;
         width: 100%;
-        /* height: 100%; */
         top: 3rem;
         bottom: 0;
         right: ${({click}) => (click ? 0 :"-100%")};
         background-color: rgb(29, 31, 27);
+
         z-index: 2000;
         transition: .5s;
         overflow-y: hidden;
@@ -48,6 +53,7 @@ const NavbarWrapper = styled.div`
 const Menu = styled.ul`
     list-style: none;
     display: flex;
+    gap: 1.5rem;
     @media screen and (max-width:768px){
         display: flex;
         flex-direction: column;
@@ -60,29 +66,48 @@ const Menu = styled.ul`
 `;
 
 const Item = styled.li`
-    margin-left: 0.5rem;
     cursor: pointer;
-    padding-bottom: 2px;
-    transition: padding-bottom 0.3s ease;
     color: white;
+    position: relative;
 
     a{
         padding: 0.25rem 0.5rem;
+        border-radius: 4px;
     }
     a.active{
-        border-bottom: 4px solid rgb(209, 28, 28);
-        border-top: 4px solid rgb(209, 28, 28);
         background-color: rgb(209, 28, 28);
     }
     @media screen and (min-width:769px){
+        a{
+            border-radius: 4px;
+            border: 4px solid transparent;
+        }
         a.item{
             font-size: 1.2rem;
-            margin-left: 1rem;
         }
-        a.item:hover{
-            border-bottom: 4px solid rgb(209, 28, 28);
-            border-top: 4px solid rgb(209, 28, 28);
-
+        a.item:hover::after{
+            content: " ";
+            position: absolute;
+            width: calc(100% - 4px);
+            height: 4px;
+            margin-top: -0.36rem;
+            border-radius: 50px;
+            background-color: rgb(209, 28, 28);
+            transition: width 0.2s ease-in;
+            left: 2px;
+            top: 0;
+        }
+        a.item:hover::before{
+            content: " ";
+            position: absolute;
+            width: calc(100% - 4px);
+            height: 4px;
+            margin-bottom: -0.36rem;
+            border-radius: 50px;
+            background-color: rgb(209, 28, 28);
+            transition: width 0.2s ease-in;
+            left: 2px;
+            bottom: 0;
         }
     }
 `;
@@ -97,19 +122,19 @@ const ButtonTheme = styled.div`
     justify-content: center;
     position: relative;
     right: 0.5rem;
+    user-select: none;
 
     @media screen and (min-width:769px){
-        margin-right: 3rem;
         font-size: 1.5rem;
         margin-left: 0.5rem;
         top: -2px;
         position: relative;
         right: 0px;
+        padding: 0.4rem 0.2rem;
     }
 `;
 
 const IconMobile = styled.div`
-    width: 3rem;
     height: 3rem;
     display: flex;
     align-items: center;
@@ -150,11 +175,11 @@ const items = [
 
 function Nav(){
     const [visible,setVisible] = useState(false);
-    const {handleTheme} = useContext(ContextTheme);
+    const {handleTheme,theme} = useContext(ContextTheme);
 
-    return <Header>
+    return <Header color={theme}>
         <NavbarContainer className="container">
-                <NavbarWrapper click={visible}>
+                <NavbarWrapper click={visible} color={theme}>
                     <Menu>
                         {
                             items.map(item => <Item key={item.id}>

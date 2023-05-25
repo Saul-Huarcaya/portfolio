@@ -10,6 +10,7 @@ import ApiCoin from './Projects/project04/ApiCoin/ApiCoin';
 import Ecommerce from './Projects/Project05/Ecommerce';
 import ShoppingCart from './Projects/Project05/ShoppingCart';
 import { ProviderEcommerce } from './Context/ContextEcommerce';
+import RoomPage from './Projects/Project06/RoomPage';
 
 function App() {
 
@@ -23,9 +24,10 @@ function App() {
           <Route path='/projects/crud' element={<Crud/>}/>
           <Route path='/projects/rick-and-morty' element={<RickAndMorty/>}/>
           <Route path='/projects/api-countries' element={<AppCountries/>}/>
-          <Route path='/projects/api-cryptomonedas' element={<ApiCoin/>}/>
+          {/* <Route path='/projects/api-cryptomonedas' element={<ApiCoin/>}/> */}
           <Route path='/projects/ecommerce' element={<Ecommerce/>}/>
           <Route path='/projects/ecommerce/cart' element={<ShoppingCart/>}/>
+          <Route path='/projects/room-page' element={<RoomPage/>} />
         </Routes>
 
       </ProviderEcommerce>

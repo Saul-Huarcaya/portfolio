@@ -1,9 +1,9 @@
 import { AiOutlineArrowUp } from "react-icons/ai";
-import { useEffect , useState } from "react";
+import { useContext, useEffect , useState } from "react";
 import styled from "styled-components";
 
 const Boton = styled.div`
-    background-color: brown;
+    background-color: rgb(209, 28, 28);
     color: white;
     width: 3.5rem;
     height: 4rem;

@@ -188,6 +188,11 @@ const ContainerSkill = styled.div`
     align-items: center;
     gap: 1rem;
     width: calc(100% - 2rem);
+    
+    @media screen and (min-width:769px) {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 `;
 
 const Title = styled.h2`
@@ -195,7 +200,8 @@ const Title = styled.h2`
     font-size: 2.2rem;
     letter-spacing: 2px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: ${props => (props.color === "dark") ? "white":"brown" };
+    color: ${props => (props.color === "dark") ? "white":"rgb(209, 28, 28)" };
+    margin-bottom: 1rem;
 `;
 
 const ContainerSkills = styled.div`

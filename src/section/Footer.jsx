@@ -1,13 +1,13 @@
-import { useEffect }from "react";
+
 import styled from "styled-components";
-import ScrollReveal from 'scrollreveal';
+
 
 const FooterContainer = styled.footer`
     background-color: black;
     color: white;
 `;
 const FooterContent = styled.div`
-    padding: 1.5rem 0rem;
+    padding: 2rem 0rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,17 +39,17 @@ const FooterLinks = styled.div`
         text-decoration: none;
     }
     a:nth-child(1){
-        background-color: #3b5998;
+        background-color: #25D366;
     }
     a:hover:nth-child(1){
-        background-color: #0051ff;
+        background-color: #00772c;
     }
 
     a:nth-child(2){
-        background-color: #25D366;
+        background-color: #252424;
     }
     a:hover:nth-child(2){
-        background-color: #00772c;
+        background-color: #141313;
     }
 
     a:nth-child(3){
@@ -67,26 +67,10 @@ const FooterCopy = styled.p`
 `;
 function Footer(){
     
-    useEffect(()=>{
-        const sr = ScrollReveal({
-            duration:1500,
-            reset:true
-        });
-        sr.reveal(".top1",{origin:"top",delay:100,distance:"100px"});
-        sr.reveal(".top2",{origin:"top",delay:100,distance:"100px"});
-        sr.reveal(".top3",{origin:"top",delay:100,distance:"150px"});
-    },[]);
-    
     return <FooterContainer>
         <FooterContent className="container">
-            <FooterTitle className="top1" >Software developer 😄</FooterTitle>
-            <FooterLinks className="top2" >
-                <a 
-                href="https://www.facebook.com/saul.huarcaya.1/" 
-                target="_blank">
-                    <i className="bx bxl-facebook"></i>
-                </a>
-
+            <FooterTitle>Software Developer 😄</FooterTitle>
+            {/* <FooterLinks className="top2" >
                 <a 
                 href="https://wa.me/51940970193" 
                 target="_blank">
@@ -94,13 +78,19 @@ function Footer(){
                 </a>
 
                 <a 
+                href="https://github.com/Saul-Huarcaya" 
+                target="_blank">
+                    <i className='bx bxl-github'></i>
+                </a>
+
+                <a 
                 href="https://linkedin.com/in/saul-huarcaya-quispe-b1504322b" 
                 target="_blank">
                     <i className="bx bxl-linkedin"></i>
                 </a>
-            </FooterLinks>
+            </FooterLinks> */}
 
-            <FooterCopy className="top3" >Creado por Saul Huarcaya (2023) &#169;</FooterCopy>
+            <FooterCopy>Creado por Saul Huarcaya (2023) &#169;</FooterCopy>
         </FooterContent>
     </FooterContainer>
 }

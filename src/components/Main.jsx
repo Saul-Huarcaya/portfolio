@@ -8,8 +8,7 @@ import Footer from "../section/Footer";
 import BotonTop from "./BotonTop";
 import { ProviderTheme } from "../Context/ContextTheme";
 function Main(){
-    return <div>
-        <ProviderTheme>
+    return<ProviderTheme>
             <Nav/>
             <Home/>
             <Project/>
@@ -17,7 +16,6 @@ function Main(){
             <Contact/>
             <Footer/>
             <BotonTop/>
-        </ProviderTheme>
-    </div>
+    </ProviderTheme>
 }
 export default Main;
