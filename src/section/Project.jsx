@@ -176,15 +176,62 @@ const ContainerButtons = styled.div`
         background-color:black;
     }
 `;
+const project = [
+    {  
+        id:1,
+        title:"CRUD",
+        description:"Son operaciones para operar la información (crear, leer, actualizar, eliminar) utilizando la api de usecontext + useReducer + useForm.",
+        route:"#/projects/crud",
+        route_github:"https://github.com/Saul-Huarcaya/crudreact",
+        route_img:"crud.JPG",
+        alt_img:"Imagen de un crud realizado con react"
+    },
+    {
+        id:2,
+        title:"Rick and Morty",
+        description:"Aplicación para buscar los personajes de Rick and Morty + scroll infinito , utilizando la Api rickandmorty.",
+        route:"#/projects/rick-and-morty",
+        route_github:"https://github.com/Saul-Huarcaya/app-countries",
+        route_img:"rick.JPG",
+        alt_img:"Imagen de un scroll infinito de la serie Rick and Morty"      
+    },{
+        id:3,
+        title:"App de Países",
+        description:"Aplicación que busca todos los países, mediante nombre del pais o region utiliza la Api RestCountries.",
+        route:"#/projects/api-countries",
+        route_github:"https://github.com/Saul-Huarcaya/app-countries",
+        route_img:"banderas.JPG",
+        alt_img:"Imagen de una aplicación para buscar países."
+    },
+    {
+        id:4,
+        title:"Room Homepage",
+        description:"Desafio Room Homepage propuesto por la web FrontendMentor nivel intermedio se realizo con React.",
+        route:"#/projects/room-page",
+        route_github:"https://github.com/Saul-Huarcaya/room-homepage",
+        route_img:"room-homepage.jpg",
+        alt_img:"Imagen de una room homepage reto de una sola pagina Frontend Mentor."
+    },
+    {
+        id:5,
+        title:"Carrito de Compras",
+        description:"Aplicación que simula el proceso para adquirir uno o varios productos tecnológicos.",
+        route:"#/projects/ecommerce",
+        route_github:"https://github.com/Saul-Huarcaya/carrtito-compras",
+        route_img:"carrito.JPG",
+        alt_img:"Carrito de crompras hecho con React"
+    },
+];
 
-export function Card({title,description,route,route_github,route_img}){
+
+export function Card({title,description,route,route_github,route_img,alt_img}){
     
     const {theme} = useContext(ContextTheme);
     const [visible,setVisible] = useState(false);
     
     return  <CardProject color={theme}>
                 <CardImg>
-                    <img src={route_img} alt="ejemplo"/>
+                    <img src={`img-projects/${route_img}`} alt={alt_img}/>
                     <button onClick={() => setVisible(true)}>
                         <BsFillArrowDownLeftCircleFill/>
                     </button>
@@ -195,8 +242,8 @@ export function Card({title,description,route,route_github,route_img}){
                     <p>{description}</p>
 
                     <ContainerButtons>
-                        <div><a href={route} target="_blank"><BsGithub/></a></div>
-                        <div><a href={route_github} target="_blank"><IoOpenOutline/></a></div>
+                        <div><a href={route_github} target="_blank"><BsGithub/></a></div>
+                        <div><a href={route} target="_blank"><IoOpenOutline/></a></div>
                     </ContainerButtons>
                     
                     <button onClick={()=> setVisible(false)}>
@@ -237,47 +284,6 @@ const TitleProject = styled.h2`
     color: ${props => (props.color === "dark") ? "white":"rgb(209, 28, 28)" };
 `;
 
-const project = [
-    {  
-        id:1,
-        title:"CRUD",
-        description:"Son operaciones para operar la información (crear, leer, actualizar, eliminar) utilizando la api de usecontext + useReducer + useForm.",
-        route:"#/projects/crud",
-        route_github:"https://github.com/Saul-Huarcaya/crudreact",
-        route_img:"/img-projects/crud.JPG"
-    },
-    {
-        id:2,
-        title:"Rick and Morty",
-        description:"Aplicación para buscar los personajes de Rick and Morty + scroll infinito , utilizando la Api rickandmorty.",
-        route:"#/projects/rick-and-morty",
-        route_github:"https://github.com/Saul-Huarcaya/app-countries",
-        route_img:"/img-projects/rick.JPG"       
-    },{
-        id:3,
-        title:"App de Países",
-        description:"Aplicación que busca todos los países, mediante nombre del pais o region utiliza la Api RestCountries.",
-        route:"#/projects/api-countries",
-        route_github:"https://github.com/Saul-Huarcaya/app-countries",
-        route_img:"/img-projects/banderas.JPG"
-    },
-    {
-        id:4,
-        title:"Room Homepage",
-        description:"Desafio Room Homepage propuesto por la web FrontendMentor nivel intermedio se realizo con React.",
-        route:"#/projects/room-page",
-        route_github:"https://github.com/Saul-Huarcaya/room-homepage",
-        route_img:"/img-projects/room-homepage.jpg"
-    },
-    {
-        id:5,
-        title:"Carrito de Compras",
-        description:"Aplicación que simula el proceso para adquirir uno o varios productos tecnológicos.",
-        route:"#/projects/ecommerce",
-        route_github:"https://github.com/Saul-Huarcaya/carrtito-compras",
-        route_img:"/img-projects/carrito.JPG"
-    },
-];
 
 function Project(){
     useEffect(()=>{
@@ -307,6 +313,7 @@ function Project(){
                         route={el.route}
                         route_github={el.route_github}
                         route_img={el.route_img}
+                        alt_img={el.alt_img}
                     />
                     )
                 }
