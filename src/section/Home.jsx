@@ -1,6 +1,6 @@
 import img_author from "../assets/Imagenes/perfil.png";
 import CV from "../assets/CV/CV-SAUL-HUARCAYA-QUISPE.pdf";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect} from "react";
 import { ContextTheme } from "../Context/ContextTheme";
 import ScrollReveal from 'scrollreveal';
 import styled from 'styled-components';
@@ -8,7 +8,7 @@ import { AiOutlineDownload } from "react-icons/ai";
 
 
 /*------------------------------ BOTON CV------------------------------------*/
-const Buton = styled.div`
+const Buton = styled.a`
     font-weight: 800;
     cursor: pointer;
     color: white;

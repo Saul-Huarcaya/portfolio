@@ -85,22 +85,22 @@ const Item = styled.li`
         a.item{
             font-size: 1.2rem;
         }
-        a.item:hover::after{
-            content: " ";
+        /* a.item:hover::after{
+            content: "";
             position: absolute;
-            width: calc(100% - 4px);
+            width: calc(50% - 4px);
             height: 4px;
             margin-top: -0.36rem;
             border-radius: 50px;
             background-color: rgb(209, 28, 28);
-            transition: width 0.2s ease-in;
+            transition: width 0.4s ease-in;
             left: 2px;
             top: 0;
         }
         a.item:hover::before{
-            content: " ";
+            content: "";
             position: absolute;
-            width: calc(100% - 4px);
+            width: calc(50% - 4px);
             height: 4px;
             margin-bottom: -0.36rem;
             border-radius: 50px;
@@ -108,6 +108,46 @@ const Item = styled.li`
             transition: width 0.2s ease-in;
             left: 2px;
             bottom: 0;
+        } */
+        a::before{
+            content: "";
+            position: absolute;
+            width: 1%;
+            bottom: -4px;
+            right: 0;
+            height: 4px;
+            opacity: 1;
+            border-radius: 50px;
+            background-color: transparent;
+            
+        }
+        a::after{
+            content: "";
+            position: absolute;
+            width: 1%;
+            bottom: -4px;
+            left: 50%;
+            height: 4px;
+            opacity: 1;
+            border-radius: 50px;
+            background-color: transparent;
+            
+        }
+        a:hover::before{
+            content: "";
+            position: absolute;
+            width: calc(50% - 12px);
+            background-color: rgb(209, 28, 28);
+            right: 50%;
+            transition: width 0.3s ease-in-out ;
+        }
+        a:hover::after{
+            content: "";
+            position: absolute;
+            width: calc(50% - 8px);
+            background-color: rgb(209, 28, 28);
+            left: 48%;
+            transition: width 0.3s ease-in-out ;
         }
     }
 `;

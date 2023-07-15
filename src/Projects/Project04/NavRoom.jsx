@@ -52,7 +52,6 @@ const ContainerLogo = styled.div`
 const ContainerMenu = styled.div`
     width: 100%;
     position: absolute;
-    width: 100%;
     top: ${props => (props.visible) ? "0rem":"-5rem"};
     left: 0;
     display: flex;

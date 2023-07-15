@@ -3,7 +3,7 @@ import NavRoom from "./NavRoom";
 import styled from "styled-components";
 
 const ContainerRoom = styled.div`
-    position: relative ;
+    position: relative;
     background-color: white;
     img{
         min-height:auto;
