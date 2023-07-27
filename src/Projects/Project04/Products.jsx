@@ -44,6 +44,12 @@ const ContainerImg = styled.div`
     flex: 100%;
     align-items: center;
     justify-content: center;
+    
+    img{
+        width: 100%;
+        min-height: 100px;
+        height: auto;
+    }
 `;
 const ContainerContent = styled.div`
     display: flex;

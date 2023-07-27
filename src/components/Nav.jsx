@@ -85,30 +85,6 @@ const Item = styled.li`
         a.item{
             font-size: 1.2rem;
         }
-        /* a.item:hover::after{
-            content: "";
-            position: absolute;
-            width: calc(50% - 4px);
-            height: 4px;
-            margin-top: -0.36rem;
-            border-radius: 50px;
-            background-color: rgb(209, 28, 28);
-            transition: width 0.4s ease-in;
-            left: 2px;
-            top: 0;
-        }
-        a.item:hover::before{
-            content: "";
-            position: absolute;
-            width: calc(50% - 4px);
-            height: 4px;
-            margin-bottom: -0.36rem;
-            border-radius: 50px;
-            background-color: rgb(209, 28, 28);
-            transition: width 0.2s ease-in;
-            left: 2px;
-            bottom: 0;
-        } */
         a::before{
             content: "";
             position: absolute;

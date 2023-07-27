@@ -63,6 +63,7 @@ function Table(){
     const [idDelete,setIdDelete] = useState();
     const [ModalUpdate,setModalUpdate] = useState(false);
     const [ModalDelete,setModalDelete] = useState(false);
+    console.log(data);
 
     const HandleUpdate = (id) =>{
         setIdUpdate(id);

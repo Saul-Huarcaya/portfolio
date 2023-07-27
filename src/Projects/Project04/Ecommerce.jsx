@@ -4,8 +4,8 @@ import Products from "./Products.jsx";
 
 function Ecommerce(){
     return (<>
-            <NavEcommerce/>
-            <Products/>
+        <NavEcommerce/>
+        <Products/>
     </>) 
 }
 export default Ecommerce;

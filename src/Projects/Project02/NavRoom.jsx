@@ -173,10 +173,10 @@ function NavRoom(){
                             <img src="imagenes-room/icon-close.svg" alt="close"/>
                         </ContainerClose>
                         <Menu>
-                            <li className="list-item"><a href="../#/projects/room-page" className="item-link">home</a></li>
-                            <li className="list-item"><a href="../#/projects/room-page" className="item-link">shop</a></li>
-                            <li className="list-item"><a href="../#/projects/room-page" className="item-link">about</a></li>
-                            <li className="list-item"><a href="../#/projects/room-page" className="item-link">contact</a></li>
+                            <li className="list-item"><a href="../portfolio/#/projects/room-page" className="item-link">home</a></li>
+                            <li className="list-item"><a href="../portfolio/#/projects/room-page" className="item-link">shop</a></li>
+                            <li className="list-item"><a href="../portfolio/#/projects/room-page" className="item-link">about</a></li>
+                            <li className="list-item"><a href="../portfolio/#/projects/room-page" className="item-link">contact</a></li>
                         </Menu>
                 </ContainerMenu>
             </Nav>

@@ -29,6 +29,8 @@ const ImgModal = styled.div`
     border-radius: 8px;
     img{
         border-radius: 8px;
+        width: 100%;
+        height: auto;
     }
 `;
 const ContainerButtons = styled.div`
@@ -161,8 +163,9 @@ const ContainerImg = styled.div`
     
     img{
         width: 100%;
-        height: inherit;
-        border-radius: 6px !important;
+        height: auto;
+        border-radius: 6px;
+        min-height: 100px;
     }
 
 `;
@@ -206,21 +209,21 @@ const project = [
     },
     {
         id:2,
-        title:"App de Países",
-        description:"Aplicación que busca todos los países, mediante nombre del pais o region utiliza la Api RestCountries.",
-        route:"#/projects/api-countries",
-        route_github:"https://github.com/Saul-Huarcaya/app-countries",
-        route_img:"banderas.JPG",
-        alt_img:"Imagen de una aplicación para buscar países."
-    },
-    {
-        id:3,
         title:"Room Homepage",
         description:"Desafio Room Homepage propuesto por la web FrontendMentor nivel intermedio se realizo con React.",
         route:"#/projects/room-page",
         route_github:"https://github.com/Saul-Huarcaya/room-homepage",
         route_img:"room-homepage.jpg",
         alt_img:"Imagen de una room homepage reto de una sola pagina Frontend Mentor."
+    },
+    {
+        id:3,
+        title:"App de Países",
+        description:"Aplicación que busca todos los países, mediante nombre del pais o region utiliza la Api RestCountries.",
+        route:"#/projects/api-countries",
+        route_github:"https://github.com/Saul-Huarcaya/app-countries",
+        route_img:"banderas.JPG",
+        alt_img:"Imagen de una aplicación para buscar países."
     },
     {
         id:4,

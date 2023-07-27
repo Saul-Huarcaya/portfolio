@@ -1,17 +1,32 @@
+import { useContext } from "react";
 import styled from "styled-components";
-
-const Card = styled.div`
-    color: white;
-    background-color: rgb(3, 3, 3);
+import { ContextTheme } from "../../Context/ContextTheme";
+import { useNavigate } from "react-router-dom";
+const Card = styled.article`
+    background-color: ${props => props.color=="dark" ? "black":"white"};
+    color: ${props => props.color == "dark" ? "white":"black"};
     border-radius: 6px;
+    box-shadow: 0px 0px 10px 2px ${props => props.color=="dark" ? "transparent":"gray"};
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    overflow: hidden;
+    &:hover{
+        box-shadow: 0px 0px 14px 2px ${props => props.color=="dark" ? "white":"black"};
+    }
 `;
 
-const CardImg = styled.img`
+const ContainerImg = styled.div`
     width: 100%;
     height: 140px;
     object-fit: cover;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
+    overflow: hidden;
+    img{
+        width: 100%;
+        object-fit: cover;
+        height: 140px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
 `;
 
 const CardContent = styled.div`
@@ -48,9 +63,13 @@ const Data = styled.p`
 `;
 
 function CardCountrie({nombre,ruta,capital,poblacion,subregion}){
-    return <Card>
-                <CardImg src={ruta} alt={nombre}/>
-                <CardContent>
+    const {theme} = useContext(ContextTheme);
+    const navegacion = useNavigate();
+    return  <Card color={theme} onClick={() => navegacion(`/projects/api-countries/${nombre}`) }>
+                <ContainerImg>
+                    <img src={ruta} alt={nombre}/>
+                </ContainerImg>
+                <CardContent color={theme}>
                     <CardTitle>{nombre}</CardTitle>
                     
                     <Row>
