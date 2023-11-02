@@ -67,7 +67,6 @@ const ContainerRow = styled.div`
         color: rgb(20, 19, 19);
         transition: color 0.3s ease ;
     }
-
 `;
 
 export function Row({row}){
@@ -79,14 +78,17 @@ export function Row({row}){
     }
 
     return <ContainerRow>
+        
             <div contentEditable suppressContentEditableWarning={true}>
                 <label>{row.nombre}</label>
             </div>
 
             <Drop id={row.id} row={row} key={row.id}/>
+
             <button onClick={() => deleteRow(row.id)}  className='button-delete'>
                 <AiFillDelete />
             </button>
+
     </ContainerRow>
 }
 

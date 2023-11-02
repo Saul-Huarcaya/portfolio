@@ -14,7 +14,6 @@ function Picture({imagen}){
         src={`img-countries/${imagen.refImg}`} 
         alt={imagen.nombre}
         style={{border : isDragging ? "5px solid yellow" : "5px solid white" , width:"120px"}}
-        
     />)
 
 }
