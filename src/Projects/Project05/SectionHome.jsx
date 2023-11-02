@@ -27,7 +27,9 @@ const ContainerImg = styled.div`
     display: flex;
     align-items: center;
     z-index: 499;
-
+    img{
+        width: 100%;
+    }
     @media screen and (max-width:768px) {
         justify-content: center;
     }

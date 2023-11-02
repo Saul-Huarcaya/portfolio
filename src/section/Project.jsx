@@ -240,7 +240,15 @@ const project = [
         route:"#/projects/mana-page",
         route_github:"https://github.com/Saul-Huarcaya/manage-page",
         route_img:"manage-page.jpg",
-        alt_img:"Carrito de crompras hecho con React"
+        alt_img:"Carrito de compras hecho con React"
+    },{
+        id:6,
+        title:"App Tier List",
+        description:"Aplicación que sirve para nivelar y ver que país es mejor en sudamerica.",
+        route:"#/projects/tier-list",
+        route_github:"https://github.com/Saul-Huarcaya/tier-list",
+        route_img:"tier-list.png",
+        alt_img:"Imagen de tier list"
     }
 ];
 
